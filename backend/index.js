@@ -1,8 +1,20 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
-const port = 5000;
+const port = 6000;
+const db = require('./models');
 
-app.use(cors());
-app.use(express.json())
-app.listen(port,()=> console.log(port + ' runing'));
+// app.use(cors());
+// app.use(express.json());
+
+db.sequelize.sync().then(() => {
+	app.listen(port, () => {
+		console.log(port + ' runing');
+	});
+});
+
+
+
+
+// npx sequelize--help;--------------------
+
