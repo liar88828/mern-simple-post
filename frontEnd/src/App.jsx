@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './style.css'
+import './style.css';
 function App() {
 
 	const [lists, setList] = useState([]);
@@ -15,17 +15,23 @@ function App() {
 		});
 	};
 	return (
-		<div>
+		<div className='App'>
 			<h1>	hahaha</h1>
 
 			{console.log(lists)}
-			{lists.map((list,index) => {
+			{lists.map((list, index) => {
 				return (
-					<ul key={list.id} >
-						<li> {index+1}</li>
-						<li> {list.title}</li>
-						<li>{list.username}</li>
-						<li>{list.postText}</li>
+					<ul key={list.id} className="post">
+						{/* <li> {index+1}</li> */}
+						<li className='title'>
+							{list.title}
+						</li>
+						<li className='body'>
+							{list.username}
+						</li>
+						<li className='footers'>
+							{list.postText}
+						</li>
 					</ul>
 				);
 			})}
