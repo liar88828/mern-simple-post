@@ -4,8 +4,8 @@ const app = express();
 const port = 5000;
 const db = require('./models');
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 //Router
 const postRouter = require('./routes/Posts');

@@ -16,5 +16,19 @@ router.post('/', async (req, res) => {
   res.json(post);
 });
 
+// router.get('/:id', async (req, res) => {
+//   const response = await Posts.findOne({
+//     where: {
+//       id: req.params.id
+//     }
+//   });
+//   res.status(200).json(response);
+// });
+
+router.get('/:id', async (req, res) => {
+  res.json(await Posts.findOne({
+    where: { id: req.params.id }
+  }));
+});
 
 module.exports = router;
