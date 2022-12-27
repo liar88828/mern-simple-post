@@ -1,0 +1,18 @@
+
+      {console.log(lists)}
+      {lists.map((list, index) => {
+        return (
+          <ul key={list.id} className="post">
+            {/* <li> {index+1}</li> */}
+            <li className='title'>
+              {list.title}
+            </li>
+            <li className='body'>
+              {list.username}
+            </li>
+            <li className='footers'>
+              {list.postText}
+            </li>
+          </ul>
+        );
+      })}
