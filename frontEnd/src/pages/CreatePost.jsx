@@ -2,8 +2,13 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 export const CreatePost = () => {
+
+
+  const navigate = useNavigate()
   const initialValues = {
     title: '',
     postText: '',
@@ -16,9 +21,6 @@ export const CreatePost = () => {
     username: Yup.string().min(3).max(15).required('tolong masukan nama anda')
   });
 
-
-
-
   const onSubmit = (data) => {
 
     axios.post('http://localhost:5000/posts', data)
@@ -27,6 +29,7 @@ export const CreatePost = () => {
       });
 
     console.log(data);
+    navigate('/')
   };
 
   return (
@@ -74,4 +77,4 @@ export const CreatePost = () => {
       </Formik>
     </div>
   );
-};;
+};

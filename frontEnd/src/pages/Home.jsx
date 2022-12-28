@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [lists, setList] = useState([]);
@@ -13,14 +14,20 @@ export const Home = () => {
       // console.log(res.data);
     });
   };
+
+
+  const navigate = useNavigate();
+
   return (
     <div className='App'>
-      <h1>	hahaha</h1>
-
       {console.log(lists)}
       {lists.map((list, index) => {
         return (
-          <ul key={list.id} className="post">
+          <ul key={list.id}
+            className="post"
+            onClick={() => {
+              navigate(`post/byId/${list.id}`);
+            }}>
             {/* <li> {index+1}</li> */}
             <li className='title'>
               {list.title}

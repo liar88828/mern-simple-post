@@ -25,10 +25,18 @@ router.post('/', async (req, res) => {
 //   res.status(200).json(response);
 // });
 
-router.get('/:id', async (req, res) => {
-  res.json(await Posts.findOne({
-    where: { id: req.params.id }
-  }));
+router.get('/byId/:id', async (req, res) => {
+
+  res.json(await Posts.findByPk(req.params.id));
+
+  // const id = req.params.id;
+  // const post = await Posts.findByPk(id);
+  // res.json(post);
+
+
+  // res.json(await Posts.findOne({
+  //   where: { id: req.params.id }
+  // }));
 });
 
 module.exports = router;
